@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+
+  database:
+    image: mysql:5.7
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+    environment:
+      - MYSQL_DATABASE=db_test
+      - MYSQL_ROOT_PASSWORD=root
